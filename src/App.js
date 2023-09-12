@@ -1,14 +1,14 @@
-import logo from './logo.svg';
-import { google_signin } from "./firebase";
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
 
 function App() {
   return (
-    <div className="App">
-      <button onClick={google_signin} type="button" class="login-with-google-btn" >
-        Sign in with Google
-      </button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" Component={Home} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
