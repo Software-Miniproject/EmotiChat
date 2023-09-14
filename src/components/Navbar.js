@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { Link } from "react-router-dom";
@@ -6,12 +7,7 @@ import { Link } from "react-router-dom";
 
 
 const NavBar = () => {
-    const [user, setUser] = useState(false);
-
-    const signin_google = () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider);
-    }
+    const [user] = useAuthState(auth);
     
     const signout = () => {
         auth.signOut();
@@ -23,17 +19,19 @@ const NavBar = () => {
                 <Link to="/">EmotiChat</Link>
             </h3>
             <div>
-                <Link to="/signup">Sign Up</Link>
-                <Link to="/login">login</Link>
                 {user ? (
                     <button onClick={signout} className="sign-out" type="button">
                         Sign Out
                     </button>
-                ) : (
-                    <button onClick={signin_google} type="button" class="sign-in" >
-                        Sign in with Google
-                    </button>
+                ): 
+                (
+                    <>
+                        <Link to="/login">Sign In</Link>
+                        <Link to="/signup">Sign Up</Link>
+                    </>
+                    
                 )}
+                <Link to="/test">trevtest</Link>                
             </div>
             
         </nav>
