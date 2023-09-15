@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { addUserToFirestore } from '../components/StoreUser';
 
 const Login = () => {
 
@@ -14,12 +15,13 @@ const Login = () => {
             console.log(error);
         }
     };
-
+    
     useEffect(() => {
         if(user != null) {
+            //addUserToFirestore();
             navigate('/account');
         }
-    }, [user]);
+    }, [user, navigate]);
 
 
     return (

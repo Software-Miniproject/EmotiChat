@@ -20,9 +20,12 @@ const Navbar = () => {
                 <Link to="/">EmotiChat</Link>
             </h1>
             {user?.displayName ? (
-                <button onClick={handleSignOut}>Sign Out</button>
+            <>
+                <Link to='/account'>My Account</Link>
+                <Link onClick={handleSignOut}>Sign Out</Link>
+            </>
             ) : (
-                <button><Link to='/login'>Sign In</Link></button>
+                <Link to='/login'>Sign In</Link>
             )}
 
         </nav>
