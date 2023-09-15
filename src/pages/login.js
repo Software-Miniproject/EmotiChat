@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { addUserToFirestore } from '../components/StoreUser';
+
 
 const Login = () => {
 
@@ -11,6 +11,7 @@ const Login = () => {
     const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
+            
         } catch (error) {
             console.log(error);
         }
@@ -18,7 +19,6 @@ const Login = () => {
     
     useEffect(() => {
         if(user != null) {
-            //addUserToFirestore();
             navigate('/account');
         }
     }, [user, navigate]);

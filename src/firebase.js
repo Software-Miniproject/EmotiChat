@@ -24,17 +24,5 @@ const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-// Initialize requirements for using Google for authentication
-const auth_provider = new GoogleAuthProvider();
-export const google_signin = () => {
-  signInWithPopup(auth, auth_provider)
-    .then((result) => {
-      const name = result.user.displayName;
-      const email = result.user.email;
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
-    });
-}
 
 export const firestore = getFirestore(app);
