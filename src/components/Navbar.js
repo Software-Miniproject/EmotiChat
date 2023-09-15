@@ -23,6 +23,7 @@ const NavBar = () => {
                 <Link to="/">EmotiChat</Link>
             </h3>
             <div>
+                <Link to="/search">Search</Link>
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">login</Link>
                 {user ? (
