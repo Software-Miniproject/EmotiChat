@@ -26,7 +26,7 @@ const Home = () => {
     
     return (
         <div className="App">
-            <NavBar />
+            
             <form onSubmit={submithandler}>
                 <input type="text" ref={dataRef}/>
                 <button type = "submit">Save</button>

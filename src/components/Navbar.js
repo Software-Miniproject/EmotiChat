@@ -27,11 +27,11 @@ const NavBar = () => {
                 (
                     <>
                         <Link to="/login">Sign In</Link>
-                        <Link to="/signup">Sign Up</Link>
+                        
                     </>
                     
                 )}
-                <Link to="/test">trevtest</Link>                
+                                
             </div>
             
         </nav>
