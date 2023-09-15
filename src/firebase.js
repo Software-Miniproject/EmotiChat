@@ -36,5 +36,3 @@ export const google_signin = () => {
       console.log(error);
     });
 }
-
-export const firestore = getFirestore(app);
