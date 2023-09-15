@@ -1,40 +1,32 @@
 import React from "react";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from "../firebase";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { Link } from "react-router-dom";
+import { UserAuth } from '../context/AuthContext';
 
+const Navbar = () => {
 
+    const { user, logOut } = UserAuth();
 
-const NavBar = () => {
-    const [user] = useAuthState(auth);
-    
-    const signout = () => {
-        auth.signOut();
+    const handleSignOut = async () => {
+        try {
+            await logOut()
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
         <nav className="navbar">
-            <h3>
+            <h1>
                 <Link to="/">EmotiChat</Link>
-            </h3>
-            <div>
-                {user ? (
-                    <button onClick={signout} className="sign-out" type="button">
-                        Sign Out
-                    </button>
-                ): 
-                (
-                    <>
-                        <Link to="/login">Sign In</Link>
-                        
-                    </>
-                    
-                )}
-                                
-            </div>
-            
+            </h1>
+            {user?.displayName ? (
+                <button onClick={handleSignOut}>Sign Out</button>
+            ) : (
+                <Link to='/login'>Sign In</Link>
+            )}
+
         </nav>
-    )
-}
-export default NavBar;
+    );
+};
+
+export default Navbar;
