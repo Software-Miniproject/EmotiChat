@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../components/Navbar";
 import SendMsg from "../components/SendMsg";
 
-const test = () => {
+const Test = () => {
 
     return (
         <div className="App">
@@ -12,4 +12,4 @@ const test = () => {
             
     )
 }
-export default test;
+export default Test;

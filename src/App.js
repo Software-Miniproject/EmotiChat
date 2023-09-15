@@ -2,11 +2,12 @@ import './App.css';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from "./pages/home";
-import login from "./pages/login";
-import test from "./pages/test";
-import account from "./pages/account";
+import Login from "./pages/login";
+import Test from "./pages/test";
+import Account from "./pages/account";
 import { AuthContextProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
+import Protected from './components/Protected';
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
         <Navbar />
 
         <Routes>
-          <Route exact path="/" Component={Home} />
-          <Route exact path="/login" Component={login} />
-          <Route exact path="/test" Component={test} />
-          <Route exact path="/account" Compnent={account} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/account" element={ <Protected> <Account /> </Protected>} />
         </Routes>
       </AuthContextProvider>
     </div>

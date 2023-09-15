@@ -22,7 +22,7 @@ const Navbar = () => {
             {user?.displayName ? (
                 <button onClick={handleSignOut}>Sign Out</button>
             ) : (
-                <Link to='/login'>Sign In</Link>
+                <button><Link to='/login'>Sign In</Link></button>
             )}
 
         </nav>

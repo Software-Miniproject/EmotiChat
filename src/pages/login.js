@@ -1,10 +1,11 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import { UserAuth } from "../context/AuthContext";
+import React, { useEffect } from 'react';
+import { UserAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
-const login = () => {
+const Login = () => {
 
-    const { googleSignIn } = UserAuth();
+    const { googleSignIn, user } = UserAuth();
+    const navigate = useNavigate();
 
     const handleGoogleSignIn = async () => {
         try {
@@ -13,6 +14,13 @@ const login = () => {
             console.log(error);
         }
     };
+
+    useEffect(() => {
+        if(user != null) {
+            navigate('/account');
+        }
+    }, [user]);
+
 
     return (
         <div className="App">
@@ -25,4 +33,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default Login;
