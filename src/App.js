@@ -10,19 +10,19 @@ import Navbar from './components/Navbar';
 
 function App() {
   return (
-   <div>
-    <AuthContextProvider>
-      <Navbar />
+    <div>
+      <AuthContextProvider>
+        <Navbar />
 
-      <Routes>
-        <Route exact path="/" Component={Home} />
-        <Route exact path="/login" Component={login}/>
-        <Route exact path="/test" Component={test}/>
-        <Route exact path="/account" Compnent={account}/>
-      </Routes>
-    </AuthContextProvider>
+        <Routes>
+          <Route exact path="/" Component={Home} />
+          <Route exact path="/login" Component={login} />
+          <Route exact path="/test" Component={test} />
+          <Route exact path="/account" Compnent={account} />
+        </Routes>
+      </AuthContextProvider>
     </div>
   );
-}
+};
 
 export default App;
