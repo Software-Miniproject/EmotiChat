@@ -1,32 +1,64 @@
-import React, { useState } from "react";
-import { auth, db } from "../firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const onSend = async(event) => {
-    event.preventDefault();
+
+import React, { useRef, useState } from "react";
+import { auth, db } from "../firebase";
+import { addDoc, collection, serverTimestamp, orderBy, query, limit, where } from "firebase/firestore";
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+const Chatroom = (props) => {
+    const chat_id = props.chat_id;
+    const dummy = useRef();
+    const messagesRef = collection(db, "messages");
+    // Query for the 25 more recent messages
+    const q = query(messagesRef, orderBy("timestamp", "asc"), limit(25));
+    
+    const [messages] = useCollectionData(q);
+
+    const [formValue, setFormValue] = useState('');
+
+    // Asynchronous function that will send messages using the value of the inputted text
+    const sendMsg = async(e) => {
+        e.preventDefault();
+        const {uid, photoURL} = auth.currentUser;
+        await addDoc(messagesRef, {
+            message: formValue,
+            timestamp: serverTimestamp(),
+            sender_id: uid,
+            chatroom_id: chat_id
+        })
+
+        setFormValue('');
+        dummy.current.scrollIntoView({ behavior: 'smooth'});
+    }
+
+    return (
+        <>
+        <main>
+            {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
+            <span ref={dummy}></span>
+        </main>
+        <form className="input_bar" onSubmit={sendMsg}>
+            <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
+            <button type="submit" disabled={!formValue}>send</button>
+        </form>          
+        </>
+    );
+
 }
 
-// Function used to send messages by storing the information into firestore
-const SendMsg = () => {
-    const [message, setMessage] = useState("");
-    return (
-        <form className="send-message">
-            <label htmlFor="messageIn" hidden>
-                Enter Message
-            </label>
-            <input
-                id="messageIn"
-                name="messageIn"
-                type="text"
-                className="form-input__input"
-                placeholder="type message..."
-                value={message}
-                // Dynamically set the message that will be sent to what's currently in the box
-                onChange={(e) => setMessage(e.target.value)}
-            />
-            <button type="submit">Send</button>
-        </form>
-    );
-};
+// Function for displaying the chat messages in the chatroom
+const ChatMessage = (props) => {
+    // Grab the message text and sender's id for the message
+    const { message, sender_id } = props.message;
+    const messageClass = sender_id === auth.currentUser.uid ? 'sent' : 'received';
 
-export default SendMsg;
+    return (
+        <>
+            <div className={`message ${messageClass}`}>
+                <p>{message}</p>
+            </div>
+        </>
+    )
+}
+
+export default Chatroom;

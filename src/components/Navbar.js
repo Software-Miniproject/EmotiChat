@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     const [user] = useAuthState(auth);
-    
+
     const signout = () => {
         auth.signOut();
     }
-
+    // Display navigation bar. If user is logged in, will see sign out button, otherwise will have sign in and sign up options
     return (
         <nav className="navbar">
             <h3>

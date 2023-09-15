@@ -7,9 +7,8 @@ const test = () => {
     return (
         <div className="App">
             <NavBar/>
-            <SendMsg/>
+            <SendMsg chat_id={"1"}/>
         </div>
-            
     )
 }
 export default test;
