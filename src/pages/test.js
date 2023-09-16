@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../components/Navbar";
-import SendMsg from "../components/SendMsg";
-import CreateChatroom from "../components/CreateChatroom";
+import SendMsg from "../components/Messages";
+import DisplayChatrooms from "../components/DisplayChatrooms";
 
 const Test = () => {
 
@@ -13,7 +13,7 @@ const Test = () => {
     return (
         <div className="App">
             <NavBar/>
-            <CreateChatroom setChatroom={handleSelectChatroom}/>
+            <DisplayChatrooms setChatroom={handleSelectChatroom}/>
             <SendMsg chat_id={selectedChatroom}/>
         </div>
     )
