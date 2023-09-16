@@ -20,31 +20,38 @@ const Chatroom = (props) => {
 
     // Asynchronous function that will send messages using the value of the inputted text
     const sendMsg = async(e) => {
-        e.preventDefault();
-        const {uid, photoURL} = auth.currentUser;
-        await addDoc(messagesRef, {
-            message: formValue,
-            timestamp: serverTimestamp(),
-            sender_id: uid,
-            chatroom_id: chat_id
-        })
+        if (auth.currentUser) {
+            e.preventDefault();
+            const {uid, photoURL} = auth.currentUser;
+            await addDoc(messagesRef, {
+                message: formValue,
+                timestamp: serverTimestamp(),
+                sender_id: uid,
+                chatroom_id: chat_id
+            })
+        }
 
         setFormValue('');
         dummy.current.scrollIntoView({ behavior: 'smooth'});
     }
 
-    return (
-        <>
-        <main>
-            {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
-            <span ref={dummy}></span>
-        </main>
-        <form className="input_bar" onSubmit={sendMsg}>
-            <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
-            <button type="submit" disabled={!formValue}>send</button>
-        </form>       
-        </>
-    );
+    if (auth.currentUser) {
+        return (
+            <>
+            <main>
+                {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
+                <span ref={dummy}></span>
+            </main>
+            <form className="input_bar" onSubmit={sendMsg}>
+                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
+                <button type="submit" disabled={!formValue}>send</button>
+            </form>       
+            </>
+        );
+    }
+    else {
+        return (<div></div>)
+    }
 
 }
 
