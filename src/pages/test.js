@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../components/Navbar";
 import SendMsg from "../components/SendMsg";
+import CreateChatroom from "../components/CreateChatroom";
 
-const test = () => {
+const Test = () => {
+
+    const [selectedChatroom, setChatroom] = useState('');
+    const handleSelectChatroom = (chatroom) => {
+        setChatroom(chatroom);
+    }
 
     return (
         <div className="App">
             <NavBar/>
-            <SendMsg chat_id={"1"}/>
+            <CreateChatroom setChatroom={handleSelectChatroom}/>
+            <SendMsg chat_id={selectedChatroom}/>
         </div>
     )
 }
-export default test;
+export default Test;

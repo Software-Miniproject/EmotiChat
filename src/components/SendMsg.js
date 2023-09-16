@@ -42,7 +42,7 @@ const Chatroom = (props) => {
         <form className="input_bar" onSubmit={sendMsg}>
             <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
             <button type="submit" disabled={!formValue}>send</button>
-        </form>          
+        </form>       
         </>
     );
 
