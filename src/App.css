@@ -54,3 +54,19 @@ nav div a{
 nav button{
   margin-right: 20px;
 }
+
+/* Design for sent / received text boxes */
+.sent p {
+  color: white;
+  background: #0b93f6;
+  align-self: flex-end;
+  text-align: right;
+  margin-right: 25px;
+}
+.received p {
+  background: #e5e5ea;
+  color: black;
+  text-align: left;
+  margin-left: 25px;
+}
+
