@@ -15,7 +15,8 @@ export const storeUserData = async (uid, email, displayName, photoURL) => {
         email: email,
         name: displayName,
         uid: uid,
-        pfp: photoURL
+        pfp: photoURL,
+        chatrooms: []
       });
       console.log('User data stored successfully');
     } else {
