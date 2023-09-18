@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
@@ -54,20 +55,28 @@ const DisplayChatrooms = ({ setChatroom }) => {
 
     // Returns HTML code that displays buttons corresponding to the chatroom id's, if clicked it will set the chatroom to the selected one
     return (
-        <div>
-            {chatrooms.map((chatroom, index) => (
-                <>
-                    <button key={index} onClick={() => handleSelectChatroom(chatroom)}>
-                        {chatroom}
-                    </button>
-                </>
-            ))}
-            {selectedChatroom && (
-                <div>
-                    <h3>Selected Chatroom: {selectedChatroom}</h3>
+        <div className="home_container">
+            <div className="chatrooms_container">
+                <h3>Chatrooms</h3>
+                {chatrooms.map((chatroom, index) => (
+                    <>
+                        <button key={index} onClick={() => handleSelectChatroom(chatroom)}>
+                            {chatroom}
+                        </button>
+                    </>
+                ))}
+            </div>
+            <div className="right_section">
+                <div className="chat_title">
+                    {selectedChatroom && (
+                        <div>
+                            <h3>Selected Chatroom: {selectedChatroom}</h3>
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
         </div>
+        
     );
 
 }
