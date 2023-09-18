@@ -22,20 +22,28 @@ export const AuthContextProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log('User', currentUser);
-            if (currentUser!=null) {
+            if (currentUser != null) {
                 const { uid, email, displayName, photoURL } = currentUser;
                 //console.log('User data:', { uid, email, displayName });
                 storeUserData(uid, email, displayName, photoURL);
             }
-            
+
         });
         return () => {
             unsubscribe();
         };
     }, []);
 
+    // Include setUser in the context
+    const contextValue = {
+        googleSignIn,
+        logOut,
+        user,
+        setUser, // Add this line
+    };
+
     return (
-        <AuthContext.Provider value={{ googleSignIn, logOut, user }}>
+        <AuthContext.Provider value={contextValue}>
             {children}
         </AuthContext.Provider>
     );
