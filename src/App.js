@@ -8,6 +8,7 @@ import Account from "./pages/account";
 import { AuthContextProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Protected from './components/Protected';
+import Username from './pages/username';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/test" element={<Test />} />
           <Route path="/account" element={ <Protected> <Account /> </Protected>} />
+          <Route path="/username" element={ <Protected> <Username /> </Protected>} />
         </Routes>
       </AuthContextProvider>
     </div>

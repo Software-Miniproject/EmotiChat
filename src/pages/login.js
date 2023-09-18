@@ -19,7 +19,7 @@ const Login = () => {
     
     useEffect(() => {
         if(user != null) {
-            navigate('/account');
+            navigate('/');
         }
     }, [user, navigate]);
 
