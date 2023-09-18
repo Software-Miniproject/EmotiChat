@@ -1,17 +1,38 @@
-import React from "react";
-import { google_signin } from "../firebase";
-import NavBar from "../components/Navbar";
+import React, { useEffect } from 'react';
+import { UserAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
-const login = () => {
+
+const Login = () => {
+
+    const { googleSignIn, user } = UserAuth();
+    const navigate = useNavigate();
+
+    const handleGoogleSignIn = async () => {
+        try {
+            await googleSignIn();
+            
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    
+    useEffect(() => {
+        if(user != null) {
+            navigate('/');
+        }
+    }, [user, navigate]);
+
 
     return (
         <div className="App">
-            <NavBar/>
-            <button onClick={google_signin} type="button" class="login-with-google-btn" >
+
+            <button onClick={handleGoogleSignIn} type="button" class="login-with-google-btn" >
                 Sign in with Google
             </button>
         </div>
-            
-    )
-}
-export default login;
+
+    );
+};
+
+export default Login;

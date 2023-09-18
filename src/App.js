@@ -1,20 +1,34 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Home from "./pages/home";
-import login from "./pages/login";
+import Login from "./pages/login";
 import Test from "./pages/test";
+import Account from "./pages/account";
+import { AuthContextProvider } from './context/AuthContext';
+import Navbar from './components/Navbar';
+import Protected from './components/Protected';
+import Username from './pages/username';
 
 function App() {
   
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" Component={Home} />
-        <Route exact path="/login" Component={login}/>
-        <Route exact path="/test" Component={Test}/>
-      </Routes>
-    </BrowserRouter>
+
+    <div>
+      <AuthContextProvider>
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/account" element={ <Protected> <Account /> </Protected>} />
+          <Route path="/username" element={ <Protected> <Username /> </Protected>} />
+        </Routes>
+      </AuthContextProvider>
+    </div>
+
   );
-}
+};
 
 export default App;
