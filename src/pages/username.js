@@ -51,10 +51,10 @@ const Username = () => {
         const username = e.target.value;
 
         // Check if the username is valid (contains only letters, numbers, ., and _ and is no longer than 30 characters)
-        const isValidUsername = /^[a-zA-Z0-9._]{1,30}$/.test(username);
+        const isValidUsername = /^[a-zA-Z0-9._]{3,30}$/.test(username);
 
         if (!isValidUsername) {
-            setErrorMessage('Invalid username format. It can only contain letters, numbers, ., and _ and must be 1 to 30 characters long.');
+            setErrorMessage('Invalid username format. It can only contain letters, numbers, ., and _ and must be 3 to 30 characters long.');
         } else {
             setErrorMessage(''); // Clear the error message if the username is valid
         }
@@ -83,10 +83,10 @@ const Username = () => {
             }
 
             // Check if the username is valid (contains only letters, numbers, ., and _ and is no longer than 30 characters)
-            const isValidUsername = /^[a-zA-Z0-9._]{1,30}$/.test(newUsername);
+            const isValidUsername = /^[a-zA-Z0-9._]{3,30}$/.test(newUsername);
 
             if (!isValidUsername) {
-                setErrorMessage('Invalid username format. It can only contain letters, numbers, ., and _ and must be 1 to 30 characters long.');
+                setErrorMessage('Invalid username format. It can only contain letters, numbers, ., and _ and must be 3 to 30 characters long.');
                 return;
             }
 
