@@ -10,13 +10,16 @@ export const storeUserData = async (uid, email, displayName, photoURL) => {
     const userDoc = await getDoc(userRef);
 
     if (!userDoc.exists()) {
-      // Document doesn't exist, so create it
+      // Extract the email prefix from the email
+      const emailPrefix = email.split('@')[0];
+
+      // Document doesn't exist, so create it with the email prefix as the username
       await setDoc(userRef, {
         email: email,
         name: displayName,
         uid: uid,
         pfp: photoURL,
-        username: '',
+        username: emailPrefix, // Set the username to the email prefix
         chatrooms: []
       });
       console.log('User data stored successfully');
@@ -28,4 +31,3 @@ export const storeUserData = async (uid, email, displayName, photoURL) => {
     console.error('Error storing user data:', error);
   }
 };
-
