@@ -23,9 +23,9 @@ export const AuthContextProvider = ({ children }) => {
             setUser(currentUser);
             console.log('User', currentUser);
             if (currentUser!=null) {
-                const { uid, email, displayName } = currentUser;
+                const { uid, email, displayName, photoURL } = currentUser;
                 //console.log('User data:', { uid, email, displayName });
-                storeUserData(uid, email, displayName);
+                storeUserData(uid, email, displayName, photoURL);
             }
             
         });
