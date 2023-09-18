@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { auth, db } from "../firebase";
-import { addDoc, collection, serverTimestamp, orderBy, query, limit, where } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, orderBy, query, limit, where, getDocs } from "firebase/firestore";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 // To do: Beautify the chat bubbles, put in CSS for the submission form, add in user PFP
@@ -38,16 +38,16 @@ const Chatroom = (props) => {
     // If the user is logged in and there is a selected chatroom, display the messages and message handler
     if (auth.currentUser && props.chat_id) {
         return (
-            <>
-            <main>
-                {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
-                <span ref={dummy}></span>
-            </main>
-            <form className="input_bar" onSubmit={sendMsg}>
-                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
-                <button type="submit" disabled={!formValue}>send</button>
-            </form>       
-            </>
+            <div className="right_section">
+                <div className="messages_container">
+                    {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
+                    <span ref={dummy}></span>
+                </div>
+                <form className="input_bar" onSubmit={sendMsg}>
+                    <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
+                    <button type="submit" disabled={!formValue}>send</button>
+                </form>       
+            </div>
         );
     }
     // Otherwise, display it as empty
@@ -62,10 +62,34 @@ const ChatMessage = (props) => {
     // Grab the message text and sender's id for the message
     const { message, sender_id } = props.message;
     const messageClass = sender_id === auth.currentUser.uid ? 'sent' : 'received';
+    const [username, setUsername] = useState('');
+
+    // Asynchronously gather the chatrooms under the current user
+    const getSenderInfo = async () => {
+        const userRef = collection(db, "users");
+        const q = query(userRef, where("uid", "==", sender_id));
+        const querySnapshot = await getDocs(q);
+
+        // If the query is successful (not empty), set the chatrooms to the chatrooms array associated with the user
+        if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const user = userDoc.data();
+            setUsername(user.username);
+        }
+        else{
+            setUsername("undefined");
+        }
+    }
+
+    // Function that will getUserChatrooms when currentUser is changed
+    useEffect(() => {
+        getSenderInfo();
+    }, []);
 
     return (
         <>
             <div className={`message ${messageClass}`}>
+                <p>{username}</p>
                 <p>{message}</p>
             </div>
         </>
