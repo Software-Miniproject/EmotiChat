@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const onSend = async(event) => {
-    event.preventDefault();
-}
-
 // Function used to send messages by storing the information into firestore
-const SendMsg = () => {
+const SendMsg = async(event) => {
+    event.preventDefault();
     const [message, setMessage] = useState("");
     return (
         <form className="send-message">

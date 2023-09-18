@@ -11,7 +11,9 @@ import Protected from './components/Protected';
 import Username from './pages/username';
 
 function App() {
+  
   return (
+
     <div>
       <AuthContextProvider>
         <Navbar />
@@ -25,6 +27,7 @@ function App() {
         </Routes>
       </AuthContextProvider>
     </div>
+
   );
 };
 

@@ -16,6 +16,7 @@ const Navbar = () => {
                     const userDocRef = doc(db, 'users', user.uid);
                     const userDocSnapshot = await getDoc(userDocRef);
 
+
                     if (userDocSnapshot.exists()) {
                         const userData = userDocSnapshot.data();
                         setUsername(userData.username);
@@ -35,8 +36,9 @@ const Navbar = () => {
         } catch (error) {
             console.log(error);
         }
-    }
 
+    }
+  
     return (
         <nav className="navbar">
             <h1>
