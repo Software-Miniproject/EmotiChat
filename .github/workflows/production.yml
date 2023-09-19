@@ -17,9 +17,11 @@ jobs:
         cache: 'npm'
         cache-dependency-path: package-lock.json
     - name: Install dependencies
-      run: npm install 
+      run: npm install
     - name: Build file
-      run: npm run build
+      run: npm run build:ci
+      env:
+        CI: ""
       
 
     - name: Deploy production to Netlify
