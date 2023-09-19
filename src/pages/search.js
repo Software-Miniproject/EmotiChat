@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "../firebase";
-import { query, where, collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { query, where, collection, getDocs, doc, setDoc, updateDoc } from "firebase/firestore";
+import { arrayUnion } from "firebase/firestore";
+import { Link } from "react-router-dom"; // Import Link
+
 
 const Search = () => {
   const [users, setUsers] = useState([]);
@@ -23,12 +26,17 @@ const Search = () => {
       // Generate a unique ID for the chat document
       const chatId = doc(collection(db, "chats"));
   
-      // Get the current user's name (assuming it's stored in user.displayName)
+      // Get the current user's UID and name (assuming it's stored in user.displayName)
       const currentUser = auth.currentUser;
+      const currentUserId = currentUser.uid;
       const currentUserName = currentUser.displayName;
   
+      // Get the selected user's UID and name
+      const selectedUserId = user.id;
+      const selectedUserName = user.name;
+  
       // Create the chat name by combining the current user's name and the selected user's name
-      const chatName = `${currentUserName}, ${user.name}`;
+      const chatName = `${currentUserName}, ${selectedUserName}`;
   
       // Set the data for the chat document
       const chatData = {
@@ -40,12 +48,28 @@ const Search = () => {
       // Create the chat document in Firestore
       await setDoc(chatId, chatData);
   
+      // Update the chatrooms array for both users
+      const currentUserDocRef = doc(collection(db, "users"), currentUserId);
+      const selectedUserDocRef = doc(collection(db, "users"), selectedUserId);
+  
+      // Update the chatrooms array for the current user
+      await updateDoc(currentUserDocRef, {
+        chatrooms: arrayUnion(chatId.id),
+      });
+  
+      // Update the chatrooms array for the selected user
+      await updateDoc(selectedUserDocRef, {
+        chatrooms: arrayUnion(chatId.id),
+      });
+  
       // You can now use the generated chatId and chatName for further chat-related functionality.
       console.log("Chat created with ID:", chatId.id);
+
     } catch (error) {
       console.error("Error creating chat:", error);
     }
   };
+  
   
 
   useEffect(() => {
@@ -86,7 +110,10 @@ const Search = () => {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button onClick={() => startChat(user)}>Start Chat</button>
+                  <td>
+  <a href="/" onClick={() => startChat(user)}>Start Chat</a>
+</td>
+
                 </td>
               </tr>
             ))
