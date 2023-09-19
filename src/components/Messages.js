@@ -22,7 +22,7 @@ const Chatroom = (props) => {
     const sendMsg = async(e) => {
         if (auth.currentUser) {
             e.preventDefault();
-            const {uid, photoURL} = auth.currentUser;
+            const {uid} = auth.currentUser;
             await addDoc(messagesRef, {
                 message: formValue,
                 timestamp: serverTimestamp(),
