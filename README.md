@@ -38,4 +38,5 @@ GitHub Actions is connected to Netlify. Upon each push, GitHub Actions connects 
 
 Sources: 
 https://javascript.works-hub.com/learn/how-to-create-a-ci-slash-cd-pipeline-using-netlify-and-github-actions-90aeb
+https://www.youtube.com/watch?v=zQyrwxMPm88&feature=youtu.be
 
