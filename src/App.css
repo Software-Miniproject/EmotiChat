@@ -76,6 +76,13 @@ nav a:hover {
   max-width: 70%;
 }
 
+.username {
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border-radius: 8px;
+}
+
 /* Input Styles */
 input[type="text"] {
   width: 100%;
@@ -109,8 +116,8 @@ button.send-button:hover {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  overflow: hidden;
-  height: calc(100vh - 70px);
+  overflow: scroll;
+  height: 100%;
   width: 100vw;
 }
 
@@ -150,11 +157,40 @@ button.send-button:hover {
   background-color:rgb(164, 241, 245);
 }
 
+.right_section {
+  
+}
+
+.messages_container {
+  margin: 20px;
+}
+
 .chat_title {
-  width: 3fr;
+  /* grid-column: span 3; */
+  width: 100%;
   background-color:#0b93f6;
   color: black;
   text-align: center;
   padding: 10px;
   font-weight: bold;
+}
+
+#homepage {
+  display: flex;
+}
+
+#hehe {
+  height: 80vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.input_bar {
+  position: fixed;
+  bottom: 10px; 
+  width: 100%;
+}
+
+.input_bar input {
+  width: 70%;
 }
