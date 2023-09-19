@@ -46,36 +46,19 @@ const DisplayChatrooms = ({ setChatroom }) => {
         return () => unsubscribe();
     }, []);
 
-    // Chatroom selection handler that sets chatroom for page and for what to display
-    const [selectedChatroom, setSelectedChatroom] = useState("");
-    const handleSelectChatroom = (chatroom) => {
-        setChatroom(chatroom);
-        setSelectedChatroom(chatroom);
-    }
 
     // Returns HTML code that displays buttons corresponding to the chatroom id's, if clicked it will set the chatroom to the selected one
     return (
-        <div className="home_container">
             <div className="chatrooms_container">
                 <h3>Chatrooms</h3>
                 {chatrooms.map((chatroom, index) => (
                     <>
-                        <button key={index} onClick={() => handleSelectChatroom(chatroom)}>
+                        <button key={index} onClick={() => setChatroom(chatroom)}>
                             {chatroom}
                         </button>
                     </>
                 ))}
             </div>
-            <div className="right_section">
-                <div className="chat_title">
-                    {selectedChatroom && (
-                        <div>
-                            <h3>Selected Chatroom: {selectedChatroom}</h3>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
         
     );
 

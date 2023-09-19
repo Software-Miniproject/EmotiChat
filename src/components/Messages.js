@@ -38,10 +38,15 @@ const Chatroom = (props) => {
     // If the user is logged in and there is a selected chatroom, display the messages and message handler
     if (auth.currentUser && props.chat_id) {
         return (
-            <div className="right_section">
+            <div>
+                <div className="chat_title">
+                    <h3>Selected Chatroom: {props.chat_id}</h3>
+                </div>
+                <div id="hehe">
                 <div className="messages_container">
                     {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
                     <span ref={dummy}></span>
+                </div>
                 </div>
                 <form className="input_bar" onSubmit={sendMsg}>
                     <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
@@ -50,6 +55,8 @@ const Chatroom = (props) => {
             </div>
         );
     }
+
+    
     // Otherwise, display it as empty
     else {
         return (<div></div>)
@@ -88,8 +95,8 @@ const ChatMessage = (props) => {
 
     return (
         <>
+            <p className={`username ${messageClass}`}>{username}</p>
             <div className={`message ${messageClass}`}>
-                <p>{username}</p>
                 <p>{message}</p>
             </div>
         </>

@@ -11,8 +11,19 @@ const Home = () => {
 
     return (
         <div className="App">
-            <DisplayChatrooms setChatroom={handleSelectChatroom}/>
-            <SendMsg chat_id={selectedChatroom}/>
+            <div className="home_container"> 
+                <div>
+                    <DisplayChatrooms setChatroom={handleSelectChatroom}/>
+                </div>
+                <div id="hehe">
+                    <div id="chatmessages">
+                        <SendMsg chat_id={selectedChatroom}/>
+                    </div>
+                </div>
+                
+           
+            </div>
+            
         </div>
     )
 }
