@@ -19,6 +19,8 @@ const Search = () => {
         setUsers(users);
     }
 
+    getUsers();
+    
     useEffect(() => {
         getUsers()
     }, []);
