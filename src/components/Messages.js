@@ -95,10 +95,13 @@ const ChatMessage = (props) => {
 
     return (
         <>
-            <p className={`username ${messageClass}`}>{username}</p>
-            <div className={`message ${messageClass}`}>
-                <p>{message}</p>
+            <div className={`username_${messageClass}`}>
+                <p className="username">{username}</p>
             </div>
+            <div className={`message_${messageClass}`}>
+                <p className="message">{message}</p>
+            </div>
+
         </>
     )
 }
