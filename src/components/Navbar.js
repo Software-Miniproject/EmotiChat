@@ -48,6 +48,7 @@ const Navbar = () => {
     {user?.displayName ? (
       <>
         <p className="navbar-username">Signed in as {username}</p>
+        <Link to='/search' className="navbar-link"> Search </Link>
         <Link to='/account' className="navbar-link">My Account</Link>
         <Link onClick={handleSignOut} className="navbar-link">Sign Out</Link>
       </>
