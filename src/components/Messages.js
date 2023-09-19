@@ -13,7 +13,7 @@ const Chatroom = (props) => {
     const messagesRef = collection(db, "messages");
     
     // Query for the 25 more recent messages in the current chatroom
-    const q = query(messagesRef, where("chatroom_id", "==", chat_id), orderBy("timestamp"), limit(25));
+    const q = query(messagesRef, where("chatroom_id", "==", chat_id), orderBy("timestamp"));
     const [messages] = useCollectionData(q);
 
     const [formValue, setFormValue] = useState('');
