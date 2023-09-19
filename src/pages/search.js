@@ -22,7 +22,6 @@ const Search = () => {
     getUsers();
     
     useEffect(() => {
-        getUsers()
     }, []);
     
     return (
@@ -32,7 +31,6 @@ const Search = () => {
       <p>Search: {userInput}</p>
       <input type="text" id="userInputField" placeholder="Exact Name..."
       /><button onClick={handleButtonClick}>Submit</button>
-      <button onClick={Search}>Search</button>
     </div>
             <br></br>
             <br></br>
