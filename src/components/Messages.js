@@ -17,7 +17,23 @@ const Chatroom = (props) => {
     const [messages] = useCollectionData(q);
 
     const [formValue, setFormValue] = useState('');
+    const [chatName, setChatName] = useState("");
 
+    // Asynchronously fetch the chat name
+    const fetchChatName = async (chat_id) => {
+        const chatRef = collection(db, "chats");
+        const q = query(chatRef, where("id", "==", chat_id));
+        const chatSnapshot = await getDocs(q);
+
+        if (!chatSnapshot.empty) {
+            const chat_data = chatSnapshot.docs[0];
+            const chatName = chat_data.data().name || chat_id;
+            setChatName(chatName);
+        } else {
+            setChatName(chat_id);
+        }
+    }
+    
     // Asynchronous function that will send messages using the value of the inputted text, current user, and timestamp
     const sendMsg = async(e) => {
         if (auth.currentUser) {
@@ -35,12 +51,14 @@ const Chatroom = (props) => {
         dummy.current.scrollIntoView({ behavior: 'smooth'});
     }
 
+    fetchChatName(chat_id);
+
     // If the user is logged in and there is a selected chatroom, display the messages and message handler
     if (auth.currentUser && props.chat_id) {
         return (
             <div>
               <div className="chat_title">
-                <h3>Selected Chatroom: {props.chat_id}</h3>
+                <h3>{chatName}</h3>
               </div>
               <div id="hehe">
                 <div className="messages_container">
