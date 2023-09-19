@@ -36,17 +36,18 @@ const Account = () => {
     };
 
     return (
-        <div className='Account'>
-            <h1>Account</h1>
-            {user?.photoURL && <img src={user.photoURL} alt="" />}
-            <div>
-                <p>Welcome, {user?.displayName}</p>
-                <p>Username: {username} <Link to='/username'>Change</Link></p>
-                <p>You are signed in using your Google account: {user?.email}</p>
-            </div>
-            <button onClick={handleSignOut}>Sign Out</button>
+        <div className='account-container'>
+          <h1>Account</h1>
+          {user?.photoURL && <img src={user.photoURL} alt="" />}
+          <div>
+            <p>Welcome, {user?.displayName}</p>
+            <p>Username: {username} <Link to='/username'>Change</Link></p>
+            <p>You are signed in using your Google account: {user?.email}</p>
+          </div>
+          <button onClick={handleSignOut} className="account-signout-btn">Sign Out</button>
         </div>
-    );
+      );
+      
 };
 
 export default Account;

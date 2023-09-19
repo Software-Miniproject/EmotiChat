@@ -49,18 +49,16 @@ const DisplayChatrooms = ({ setChatroom }) => {
 
     // Returns HTML code that displays buttons corresponding to the chatroom id's, if clicked it will set the chatroom to the selected one
     return (
-            <div className="chatrooms_container">
-                <h3>Chatrooms</h3>
-                {chatrooms.map((chatroom, index) => (
-                    <>
-                        <button key={index} onClick={() => setChatroom(chatroom)}>
-                            {chatroom}
-                        </button>
-                    </>
-                ))}
-            </div>
-        
-    );
+        <div className="chatrooms_container">
+          <h3 style={{ textAlign: 'center' }}>Chatrooms</h3>
+          {chatrooms.map((chatroom, index) => (
+            <button key={index} onClick={() => setChatroom(chatroom)}>
+              {chatroom}
+            </button>
+          ))}
+        </div>
+      );
+      
 
 }
 

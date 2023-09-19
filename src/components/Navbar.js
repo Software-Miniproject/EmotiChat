@@ -41,19 +41,22 @@ const Navbar = () => {
   
     return (
         <nav className="navbar">
-            <h1>
-                <Link to="/">EmotiChat</Link>
-            </h1>
-            {user?.displayName ? (
-                <>
-                    <p>Signed in as {username}</p> {/* Display username */}
-                    <Link to='/account'>My Account</Link>
-                    <Link onClick={handleSignOut}>Sign Out</Link>
-                </>
-            ) : (
-                <Link to='/login'>Sign In</Link>
-            )}
-        </nav>
+  <Link to="/" className="navbar-brand">
+    EmotiChat
+  </Link>
+  <div className="navbar-links">
+    {user?.displayName ? (
+      <>
+        <p className="navbar-username">Signed in as {username}</p>
+        <Link to='/account' className="navbar-link">My Account</Link>
+        <Link onClick={handleSignOut} className="navbar-link">Sign Out</Link>
+      </>
+    ) : (
+      <Link to='/login' className="navbar-link">Sign In</Link>
+    )}
+  </div>
+</nav>
+
     );
 };
 

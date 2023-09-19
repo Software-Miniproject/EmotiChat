@@ -116,21 +116,25 @@ const Username = () => {
     
 
     return (
-        <div className='Username'>
-            <h1>Change Username</h1>
-            <div>
-                <input
-                    type="text"
-                    value={newUsername}
-                    onChange={handleUsernameChange}
-                />
-                <button onClick={handleSaveUsername}>Save</button>
-                {successMessage && <p className="success-message">{successMessage}</p>}
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <p><Link to="/account">My Account</Link></p>
-            </div>
+        <div className='username-container'>
+          <h1>Change Username</h1>
+          <div>
+            <input
+              type="text"
+              value={newUsername}
+              onChange={handleUsernameChange}
+              placeholder="New Username" /* Added placeholder for clarity */
+            />
+            <button onClick={handleSaveUsername} className="username-save-btn">
+              Save
+            </button>
+            {successMessage && <p className="success-message">{successMessage}</p>}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <p><Link to="/account" className="username-account-link">My Account</Link></p>
+          </div>
         </div>
-    );
+      );
+      
 };
 
 export default Username;

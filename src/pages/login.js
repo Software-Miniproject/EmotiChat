@@ -26,13 +26,16 @@ const Login = () => {
 
     return (
         <div className="App">
-
-            <button onClick={handleGoogleSignIn} type="button" class="login-with-google-btn" >
-                Sign in with Google
+          <div className="signin-container">
+            <h1>Welcome to EmotiChat</h1>
+            <p>Sign in to get started!</p>
+            <button onClick={handleGoogleSignIn} type="button" className="login-with-google-btn">
+              Sign in with Google
             </button>
+          </div>
         </div>
-
-    );
+      );
+      
 };
 
 export default Login;

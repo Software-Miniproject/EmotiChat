@@ -1,15 +1,15 @@
 /* Global Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto Mono', monospace; /* Techy font */
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
+  background-color: #f2f2f2; /* Modern gray background */
   color: #333;
 }
 
 /* Header Styles */
 header {
-  background-color: #007bff;
+  background-color: #7c977f; 
   color: #fff;
   padding: 20px 0;
   text-align: center;
@@ -17,16 +17,36 @@ header {
 }
 
 /* Navigation Styles */
+/* Navigation Styles */
 nav {
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
+  background-color: #C7D0C8; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px; /* Increased padding for better spacing */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav a {
+/* Styling for the Navbar Brand (EmotiChat) */
+.navbar-brand {
+  font-size: 30px; /* Larger font size for prominence */
+  color: #333; /* Default text color */
+  text-decoration: none; /* Remove underlines */
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  color: #95AF9C; /* Updated accent color on hover */
+}
+
+/* Styling for Navbar Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
   color: #333;
   text-decoration: none;
   margin: 0 20px;
@@ -34,25 +54,28 @@ nav a {
   transition: color 0.3s ease-in-out;
 }
 
-nav a:hover {
-  color: #007bff;
+.navbar-link:hover {
+  color: #95AF9C; /* Updated accent color on hover */
 }
+
+/* Styling for the Username */
+.navbar-username {
+  font-weight: normal; /* Use normal font weight for the username */
+  margin: 20px;
+}
+
 
 /* Chat Container Styles */
 .chat-container {
   max-width: 800px;
   margin: 20px auto;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
-/* Message Styles */
-.message {
-  display: flex;
-  padding: 10px 20px;
-}
+
 
 .message_sent {
   justify-content: flex-end;
@@ -60,9 +83,9 @@ nav a:hover {
 }
 
 .message_sent p {
-  background-color: #007bff;
+  background-color: #95AF9C; /* Updated accent color for sent messages */
   color: #fff;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 10px;
   margin: 1px;
   max-width: 70%;
@@ -73,9 +96,9 @@ nav a:hover {
 }
 
 .message_received p {
-  background-color: #f0f0f0;
+  background-color: #dcdcdc; /* Slightly darker gray for received messages */
   color: #333;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 10px;
   margin: 5px;
   max-width: 70%;
@@ -106,15 +129,15 @@ input[type="text"] {
   border-top: 1px solid #ccc;
   font-size: 16px;
   outline: none;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 
 /* Send Button Styles */
 button.send-button {
-  background-color: #007bff;
+  background-color: #95AF9C; /* Updated accent color for send button */
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
@@ -123,7 +146,7 @@ button.send-button {
 }
 
 button.send-button:hover {
-  background-color: #0056b3;
+  background-color: #7c977f; /* Slightly darker accent color on hover */
 }
 
 /* CSS for the chatroom menu / container */
@@ -136,73 +159,289 @@ button.send-button:hover {
   width: 100vw;
 }
 
+#chatmessages {
+  background-color: #f9f9f9; /* Background color for the chat messages */
+  padding: 20px; /* Add padding for spacing */
+  overflow-y: auto; /* Add vertical scrolling for long chats */
+  max-height: 78vh; /* Limit the maximum height for responsiveness */
+  width: 100%; /* Set the width to 75% of the screen width */
+  margin-left: auto; /* Right-align the chat messages */
+  margin-right: auto; /* Add some right margin for spacing */
+}
+
+
+
+/* Updated Chatroom Container and Button Styles */
 .chatrooms_container {
-  /* float:left;
+  position: fixed;
+  width: 26%;
+  height: 100vh; /* Set height to 100% of the viewport height */
+  
+  overflow-y: auto;
+  background-color: #E7E7E7; /* Slightly darker gray background */
   display: flex;
   flex-direction: column;
-  width: 1fr;
-  background-color:aqua;
-  border-right: 2px solid rgb(164, 241, 245); */
-  width: 100%;
-  height: 700px;
-  box-shadow: 0px 8px 10px rgba(0,0,0,0.20);
-  overflow: hidden;
-  background-color: #87a3ec;
-  display: inline-block;
+  z-index: 2;
 }
 
+
+/* Centered, Larger, and Bolder Text for Chatroom Buttons */
 .chatrooms_container button {
-  /* border: none;
-  background-color: transparent;
-  padding: 10px 15px;
-  text-align: left;
+  width: 100%;
+  height: 80px;
+  background-color: #C7D0C8; /* Updated accent color for button */
+  color: #3B3B3B;
+  border: none;
+  border-bottom: solid 1px #E0E0E0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centered text */
+  padding: 0 20px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  width: 100%; */
-  width: 100%;
-  height: 90px;
-  background-color: #FAFAFA;
-  border-bottom: solid 1px #E0E0E0;
-  display:flex;
-  align-items: center;
-  cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px; /* Larger font size */
+  font-weight: bold; /* Bolder text */
+  font-family: 'Roboto Mono', monospace; /* Monospace font */
 }
 
-.chatroom_container button:hover {
-  background-color:rgb(164, 241, 245);
+
+.chatrooms_container button:hover {
+  background-color: #B6C1B8; /* Slightly darker accent color on hover */
 }
 
+/* Arrow Icon for Button */
+.chatrooms_container button .arrow-icon {
+  color: #fff;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.chatrooms_container button:hover .arrow-icon {
+  transform: rotate(90deg);
+}
 
 .messages_container {
-  margin: 20px;
+  margin: 20px; /* Reduced margin for better spacing */
+  padding: 5px; /* Added padding for better spacing */
 }
 
 .chat_title {
-  /* grid-column: span 3; */
-  width: 100%;
-  background-color:#0b93f6;
-  color: black;
+  width: 50%;
+  background-color: rgba(180, 180, 180, 0.60); /* Use rgba with an opacity of 0.75 */
+  color: #3B3B3B;
   text-align: center;
-  padding: 10px;
+  padding: 1px;
+  font-size: 18px;
   font-weight: bold;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: sticky;
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1; /* Ensure it appears above other elements */
 }
+
 
 #homepage {
   display: flex;
+  flex-direction: column; /* Adjusted to a column layout for better chat display */
+  align-items: center; /* Center content horizontally */
 }
 
-#hehe {
-  height: 80vh;
+#chatroom-display {
+  height: 85vh; /* Reduced height to fit better */
   overflow-y: auto;
+  width: 100%; /* Adjusted width for better fitting */
+ 
+  margin-bottom: 5px; /* Reduced margin for better spacing */
+}
+
+/* Styling for the Input Bar */
+.input_bar {
+  position: fixed;
+  bottom: 0;
+  right: 0; /* Anchor to the right side */
+  width: 73%;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.input_bar input {
+  width: 70%; /* Reduced input width to make room for the button */
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Send Button Styling */
+.input_bar button.send-button {
+  background-color: #95AF9C;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.input_bar button.send-button:hover {
+  background-color: #7c977f; /* Darker color on hover */
+}
+
+/* Styling for the sign-in container */
+.signin-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5; /* Background color for the container */
+}
+
+.signin-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.signin-container p {
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
-.input_bar {
-  position: fixed;
-  bottom: 10px; 
-  width: 100%;
+.login-with-google-btn {
+  background-color: #E7E7E7; /* Button background color */
+  color: #373737; /* Button text color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px 10px 45px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.input_bar input {
-  width: 70%;
+.login-with-google-btn:hover {
+  background-color: #D0D0D0; /* Darker button color on hover */
+}
+
+/* Styling for the Account Page Container */
+.account-container {
+  text-align: center; /* Center-align content */
+  padding: 20px;
+  background-color: #f5f5f5; /* Background color for the container */
+  color: #333;
+  max-width: 800px; /* Limit the width of the content */
+  margin: 30px auto 0; /* Center the container horizontally */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Styling for the "Change" link */
+.account-container a {
+  color: #95AF9C; /* Link color */
+  text-decoration: none; /* Remove underlines */
+  font-weight: bold; /* Make the link text bold */
+  margin-left: 5px; /* Add some space between the link and the text */
+  transition: color 0.3s ease-in-out; /* Add a color transition on hover */
+}
+
+.account-container a:hover {
+  color: #7c977f; /* Darker link color on hover */
+}
+
+/* Styling for the Sign Out Button */
+.account-signout-btn {
+  background-color: #95AF9C; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px; /* Add space between content and button */
+  font-family: 'Roboto Mono', monospace;
+}
+
+.account-signout-btn:hover {
+  background-color: #7c977f; /* Darker button color on hover */
+}
+
+/* Styling for the Change Username Page Container */
+.username-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  color: #333;
+  max-width: 800px;
+  margin: 20px auto 0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Styling for the Username Input */
+.username-container input {
+  width: 100%; /* Take up the entire width of the container */
+  padding: 10px;
+  border: none;
+  border-top: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  border-radius: 8px;
+  margin: 0 auto; /* Center the input horizontally within the container */
+  max-width: 300px; /* Limit the maximum width to avoid excessive stretching */
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+/* Styling for the "Save" Button */
+.username-save-btn {
+  background-color: #95AF9C;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.username-save-btn:hover {
+  background-color: #7c977f;
+}
+
+/* Styling for Success and Error Messages */
+.success-message {
+  color: #0a9400; /* Green color for success messages */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: #ff0000; /* Red color for error messages */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styling for the "My Account" Link */
+.username-account-link {
+  color: #272727;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.username-account-link:hover {
+  color: #95AF9C;
 }

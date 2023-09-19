@@ -39,21 +39,22 @@ const Chatroom = (props) => {
     if (auth.currentUser && props.chat_id) {
         return (
             <div>
-                <div className="chat_title">
-                    <h3>Selected Chatroom: {props.chat_id}</h3>
-                </div>
-                <div id="hehe">
+              <div className="chat_title">
+                <h3>Selected Chatroom: {props.chat_id}</h3>
+              </div>
+              <div id="hehe">
                 <div className="messages_container">
-                    {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
-                    <span ref={dummy}></span>
+                  {messages && messages.map(msg => <ChatMessage key={msg.sender_id} message={msg}/>)}
+                  <span ref={dummy}></span>
                 </div>
-                </div>
-                <form className="input_bar" onSubmit={sendMsg}>
-                    <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="hehe"/>
-                    <button type="submit" disabled={!formValue}>send</button>
-                </form>       
+              </div>
+              <form className="input_bar" onSubmit={sendMsg}>
+                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Type a message..." />
+                <button type="submit" disabled={!formValue} className="send-button">Send!</button>
+              </form>
             </div>
-        );
+          );
+          
     }
 
     

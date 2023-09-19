@@ -15,7 +15,7 @@ const Home = () => {
                 <div>
                     <DisplayChatrooms setChatroom={handleSelectChatroom}/>
                 </div>
-                <div id="hehe">
+                <div id="chatroom-display">
                     <div id="chatmessages">
                         <SendMsg chat_id={selectedChatroom}/>
                     </div>
