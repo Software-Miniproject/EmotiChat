@@ -8,6 +8,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Protected from './components/Protected';
 import Username from './pages/username';
+import Search from './pages/search';
 
 function App() {
   
