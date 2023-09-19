@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# EmotiChat (https://emoti-chat.netlify.app/)
+EmotiChat is a Firebase and React-based online chat web-application that allows users to easily communicate with each other in private chatrooms. The website allows users to login using the Google Authentication API, search for other users to create chatrooms, and read / send messages in a selected chatroom. The website itself is hosted using [Netlify](https://emoti-chat.netlify.app/), and the code is automated using GitHub Actions to publish the most recent push to the link.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to Use
+To use EmotiChat, you just have to go to the link emoti-chat.netlify.app. From there, you can sign-in using the `Sign in` link on the navigation bar. This lets you create a user using Google User Authentication. From there, you can use the `Search` link to search up existing users on the app to create chatrooms. On the home page, you can select which chatroom to view from the Chatrooms menu, and in the chatroom itself you can view the messages sent to you and send messages back.
 
-## Available Scripts
+<img width="1670" alt="Screen Shot 2023-09-19 at 6 24 52 PM" src="https://github.com/Software-Miniproject/EmotiChat/assets/98369076/8bcb4a5b-092a-4598-90c9-3d65256b260a">
 
-In the project directory, you can run:
+## React and Firebase
+The app itself is written using React as a free, open-source tool for creating mobile and web applications using JavaScript and CSS. The React code connects to Firebase for access to API's like Google Authentication as well as the Firestore storage feature that allows easy setup and querying of a database for the application.
 
-### `npm start`
+### Firestore
+EmotiChat stores and accesses three database containers in Firestore: users, chats, and messages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Users
+The 'users' collection contains the information of existing users: username, id, email, name, pfp link, and an array of chatroom id's to tell which chatrooms the user is currently in
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Messages
+The 'messages' collection contains all of the messages sent across the entire application. Each document contains: the message contents, the id of the sender, the timestamp of when the message was sent, and the id of the chatroom it took place in
 
-### `npm test`
+#### Chats
+The 'chats' collection contains all of the chats on the app. Each chat only needs to store its id
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Authentication / Authorization / Auditing
 
-### `npm run build`
+## Search Function
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Chatroom Display
+The way that the chatroom display works is that the DisplayChatrooms.js component checks if the user is currently logged in (if not, wait for a change in the state of auth.currentUser to refresh). The component then queries into Firestore for all of the chat id's stored in the user's `chatrooms` array. It then displays each of these chatrooms as buttons that the user can click on to select that chatroom as the current chatroom
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Messaging
+EmotiChat uses the id of the currently selected chatroom to display the id of the selected chatroom at the top and display all of the messages in Firestore associated with that id ordered by the timestamps of when each message was sent. If the id of the message sender is the same as the user currently logged in, the message will appear green on the right, and otherwise it will appear grey on the left of the chatroom.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This component also allows the user to send messages in a submit bar at the bottom of the chatroom. Upon submission, React creates a document under the `messages` collection that stores the message's contents, timestamp, the chatroom id, and the id of the current user who sent it.
 
-### `npm run eject`
+## GitHub Actions
+GitHub Actions is connected to Netlify. Upon each push, GitHub Actions connects to Netlify, builds the website using `npm run build`, then publishes the built code to Netlify so that the hosted website is constantly up to date with the most recent functioning commit.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Sources: 
+https://javascript.works-hub.com/learn/how-to-create-a-ci-slash-cd-pipeline-using-netlify-and-github-actions-90aeb
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
