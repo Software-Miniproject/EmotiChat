@@ -4,15 +4,19 @@ import { query, where, collection, getDocs, doc, setDoc, updateDoc } from "fireb
 import { arrayUnion } from "firebase/firestore";
 import { Link } from "react-router-dom"; // Import Link
 
-
 const Search = () => {
   const [users, setUsers] = useState([]);
   const [userInput, setUserInput] = useState('');
-
+  const [selectedValue, setSelectedValue] = useState('username'); 
+  
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+  
   const handleButtonClick = async () => {
     try {
       const usersRef = collection(db, "users");
-      const q = query(usersRef, where("name", ">=", userInput));
+      const q = query(usersRef, where(selectedValue, ">=", userInput));
       const querySnapshot = await getDocs(q);
       const usersData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setUsers(usersData);
@@ -87,7 +91,12 @@ const Search = () => {
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
         />
-        <button onClick={handleButtonClick}>Submit</button>
+        <select value={selectedValue} onChange={handleSelectChange}>
+          <option value="username"> Username </option>
+          <option value="name"> Name </option>
+          <option value="email"> Email </option>
+        </select>
+        <button onClick={handleButtonClick}> Search </button>
         <br></br>
       </div>
       <br></br>
