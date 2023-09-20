@@ -24,7 +24,9 @@ The 'chats' collection contains all of the chats on the app. Each chat only need
 ## Authentication / Authorization / Auditing
 
 ## Search Function
-The search function takes an input from the user and stores it which is then passed to the query search which outputs any value "greater than or equal to" the input. The results are displayed alphabetically. This means that anything after or equal to the input will be displayed. The results are read from the firestore where the information of the users is grabbed and displayed in a table. The search occurs only after the search button is pressed. There is also a select box where the user can select which field they are searching. The options available are username, name, and email. When the search button is pressed without input, all users will be displayed in the same alphabetical way.
+The search function takes an input from the user and stores it which is then passed to the query search which outputs any value "greater than or equal to" the input. The results are displayed alphabetically. This means that anything after or equal to the input will be displayed. The results are read from the firestore where the information of the users is grabbed and displayed in a table. The search occurs only after the search button is pressed. There is also a select box where the user can select which field they are searching. The options available are username, name, and email. When the search button is pressed without input, all users will be displayed in the same alphabetical way. Along with that, the search is case-sensitive.
+
+To use the search function, select the desired search type: username, name, or email. Then, select the search bar and type the search into the bar. From there, press the search button to submit the search. Once pressed, the results will be displayed.
 
 <img width="1280" alt="searchss" src="https://github.com/Software-Miniproject/EmotiChat/assets/91104705/06395330-a76e-46cf-bcc1-09b7d0a0d9a6">
 
