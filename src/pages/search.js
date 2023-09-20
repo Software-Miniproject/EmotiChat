@@ -120,7 +120,24 @@ const Search = () => {
                 <td>{user.email}</td>
                 <td>
                   <td>
-  <a href="/" onClick={() => startChat(user)}>Start Chat</a>
+                  <a
+  href="/"
+  onClick={(e) => {
+    e.preventDefault(); // Prevent the default link behavior
+
+    // Execute the startChat function with a slight delay
+    setTimeout(() => {
+      startChat(user);
+      
+      // Navigate to the home page
+      window.location.href = '/';
+    }, 1);
+  }}
+>
+  Start Chat
+</a>
+
+
 </td>
 
                 </td>
