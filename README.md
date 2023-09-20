@@ -25,6 +25,8 @@ The 'chats' collection contains all of the chats on the app. Each chat only need
 
 <img width="1199" alt="Screenshot 2023-09-19 202049" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/2e163304-2270-4234-9ebf-5b719e634584">
 
+Before being able to use any of the features of EmotiChat, you must sign in with your Google account. The sign in page is the only accessible page when you are not signed in. Any attempt to navigate to another page will take you back to the sign in page. When you click the "Sign in with Google" button, you are redirected to the Google sign in page where you can sign in with your Google account (or, you will be immediately signed in if you are already signed in on Google in your current browser).
+
 <img width="1199" alt="Screenshot 2023-09-19 202417" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/547709d2-356e-487c-9d04-e82010b67164">
 
 <img width="1196" alt="Screenshot 2023-09-19 202525" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/50321fe1-22d0-4f4c-9d16-5202b50de366">
