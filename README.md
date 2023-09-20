@@ -25,8 +25,6 @@ The 'chats' collection contains all of the chats on the app. Each chat only need
 
 <img width="1199" alt="Screenshot 2023-09-19 202049" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/2e163304-2270-4234-9ebf-5b719e634584">
 
-<img width="1198" alt="Screenshot 2023-09-19 202211" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/2378ce01-3aa1-495e-9ace-80fb8f72ade5">
-
 <img width="1199" alt="Screenshot 2023-09-19 202417" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/547709d2-356e-487c-9d04-e82010b67164">
 
 <img width="1196" alt="Screenshot 2023-09-19 202525" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/50321fe1-22d0-4f4c-9d16-5202b50de366">
