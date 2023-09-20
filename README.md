@@ -35,14 +35,15 @@ Clicking the "My Account" link takes you to your account page. Your account page
 
 <img width="1196" alt="Screenshot 2023-09-19 202525" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/50321fe1-22d0-4f4c-9d16-5202b50de366">
 
-On the username change page, you can enter a desired username that you would like to change to and save it to your account. However, there are some filters and limitations to the username you set for yourself. In terms of formatting, your username can only contain letters, numbers, the "." and "_" symbols, and must be between 3 to 30 characters in length. Entering in anything that does not fit this formatting will immediately cause an error message to display that states the requirements.
+On the username change page, you can enter a desired username that you would like to change to and save it to your account. However, there are some filters and limitations to the username you set for yourself. In terms of formatting, your username can only contain letters, numbers, the "." and "_" symbols, and must be between 3 to 30 characters in length. Entering in anything that does not fit this formatting will immediately cause an error message to display that states the requirements, and it will not be saved to your account.
 
 <img width="634" alt="Screenshot 2023-09-19 202619" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/474469c2-65df-4852-a4ec-b7ff3392aaf6">
 
-Additionally, your username cannot be the same as another user's. When you attempt to save your username as one that another Emotichat user is using, an error message will be displayed stating that 
+Additionally, your username cannot be the same as another user's. When you attempt to save your username as one that another Emotichat user is using, an error message will be displayed stating that the username is already in use, and it will not be saved to your account.
 
 <img width="1196" alt="Screenshot 2023-09-19 202723" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/6173ecd9-0d58-4bfc-a1b8-a27375f0f692">
 
+If the username you enter fits the formatting requirements and is not already being used, you will successfully be able to save it to your account and a success message will be displayed stating that your username was changed.
 
 ## Search Function
 The search function takes an input from the user and stores it which is then passed to the query search which outputs any value "greater than or equal to" the input. The results are displayed alphabetically. This means that anything after or equal to the input will be displayed. The results are read from the Cloud Firestore where the information of the users is grabbed and displayed in a table. The search occurs only after the search button is pressed. There is also a select box where the user can select which field they are searching. The options available are username, name, and email. When the search button is pressed without input, all users will be displayed in the same alphabetical way. Along with that, the search is case-sensitive.
