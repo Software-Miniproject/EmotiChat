@@ -35,9 +35,11 @@ Clicking the "My Account" link takes you to your account page. Your account page
 
 <img width="1196" alt="Screenshot 2023-09-19 202525" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/50321fe1-22d0-4f4c-9d16-5202b50de366">
 
-On the username change page, you can enter a desired username that you would like to change to and save it to your account. However, there are some filters and limitations to the username you set for yourself.
+On the username change page, you can enter a desired username that you would like to change to and save it to your account. However, there are some filters and limitations to the username you set for yourself. In terms of formatting, your username can only contain letters, numbers, the "." and "_" symbols, and must be between 3 to 30 characters in length. Entering in anything that does not fit this formatting will immediately cause an error message to display that states the requirements.
 
 <img width="634" alt="Screenshot 2023-09-19 202619" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/474469c2-65df-4852-a4ec-b7ff3392aaf6">
+
+Additionally, your username cannot be the same as another user's. When you attempt to save your username as one that another Emotichat user is using, an error message will be displayed stating that 
 
 <img width="1196" alt="Screenshot 2023-09-19 202723" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/6173ecd9-0d58-4bfc-a1b8-a27375f0f692">
 
