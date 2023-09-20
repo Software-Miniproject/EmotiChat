@@ -35,11 +35,14 @@ The 'chats' collection contains all of the chats on the app. Each chat only need
 
 
 ## Search Function
-The search function takes an input from the user and stores it which is then passed to the query search which outputs any value "greater than or equal to" the input. The results are displayed alphabetically. This means that anything after or equal to the input will be displayed. The results are read from the firestore where the information of the users is grabbed and displayed in a table. The search occurs only after the search button is pressed. There is also a select box where the user can select which field they are searching. The options available are username, name, and email. When the search button is pressed without input, all users will be displayed in the same alphabetical way. Along with that, the search is case-sensitive.
+The search function takes an input from the user and stores it which is then passed to the query search which outputs any value "greater than or equal to" the input. The results are displayed alphabetically. This means that anything after or equal to the input will be displayed. The results are read from the Cloud Firestore where the information of the users is grabbed and displayed in a table. The search occurs only after the search button is pressed. There is also a select box where the user can select which field they are searching. The options available are username, name, and email. When the search button is pressed without input, all users will be displayed in the same alphabetical way. Along with that, the search is case-sensitive.
 
 To use the search function, select the desired search type: username, name, or email. Then, select the search bar and type the search into the bar. From there, press the search button to submit the search. Once pressed, the results will be displayed.
 
-![searchss](https://github.com/Software-Miniproject/EmotiChat/assets/91104705/474e2420-4b31-4d72-bb26-72e92c75cf7c)
+![image](https://github.com/Software-Miniproject/EmotiChat/assets/91104705/1590cc1d-ae59-4535-8d9c-327abc25d2d2)
+
+## Start Chat Link
+The start chat link is incorporated with the search page. After searching for the desired user to chat with, the link will create a chatroom with that other user and bring the user to the chatroom/home page. This allows the user to send the receiver a message more easily. This is done through a series of linking and creation of chatrooms and their messages into the Cloud Firestore.
 
 ## Chatroom Display
 The way that the chatroom display works is that the DisplayChatrooms.js component checks if the user is currently logged in (if not, wait for a change in the state of auth.currentUser to refresh). The component then queries into Firestore for all of the chat id's stored in the user's `chatrooms` array. It then displays each of these chatrooms as buttons that the user can click on to select that chatroom as the current chatroom.
