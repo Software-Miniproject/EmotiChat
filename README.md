@@ -27,13 +27,15 @@ The 'chats' collection contains all of the chats on the app. Each chat only need
 
 Before being able to use any of the features of EmotiChat, you must sign in with your Google account. The sign in page is the only accessible page when you are not signed in. Any attempt to navigate to another page will take you back to the sign in page. When you click the "Sign in with Google" button, you are redirected to the Google sign in page where you can sign in with your Google account (or, you will be immediately signed in if you are already signed in on Google in your current browser).
 
-<img width="1199" alt="Screenshot 2023-09-19 202417" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/547709d2-356e-487c-9d04-e82010b67164">
-
 After signing in, you are taken to the home page, and the Navbar now indicates the user that you are signed in as, and contains links to your account page, and the search page. Clicking the "EmotiChat" link takes you to the home page. There is also "Sign Out" button that you can use the sign out of your account from any page at any time.
+
+<img width="1199" alt="Screenshot 2023-09-19 202417" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/547709d2-356e-487c-9d04-e82010b67164">
 
 Clicking the "My Account" link takes you to your account page. Your account page displays your profile picture, name, username, and email that you signed in with. This information is gathered from your google account when you sign in to EmotiChat for the first time, with your username being taken from your email prefix. There is also a "Sign Out" button on the account page that you can also use to sign out. Clicking the "Change" link nexts to your username takes you to the username change page.
 
 <img width="1196" alt="Screenshot 2023-09-19 202525" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/50321fe1-22d0-4f4c-9d16-5202b50de366">
+
+On the username change page, you can enter a desired username that you would like to change to and save it to your account. However, there are some filters and limitations to the username you set for yourself.
 
 <img width="634" alt="Screenshot 2023-09-19 202619" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/474469c2-65df-4852-a4ec-b7ff3392aaf6">
 
