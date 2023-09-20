@@ -13,13 +13,13 @@ The app itself is written using React as a free, open-source tool for creating m
 EmotiChat stores and accesses three database containers in Firestore: users, chats, and messages.
 
 #### Users
-The 'users' collection contains the information of existing users: username, id, email, name, pfp link, and an array of chatroom id's to tell which chatrooms the user is currently in
+The 'users' collection contains the information of existing users: username, id, email, name, pfp link, and an array of chatroom id's to tell which chatrooms the user is currently in.
 
 #### Messages
-The 'messages' collection contains all of the messages sent across the entire application. Each document contains: the message contents, the id of the sender, the timestamp of when the message was sent, and the id of the chatroom it took place in
+The 'messages' collection contains all of the messages sent across the entire application. Each document contains: the message contents, the id of the sender, the timestamp of when the message was sent, and the id of the chatroom it took place in.
 
 #### Chats
-The 'chats' collection contains all of the chats on the app. Each chat only needs to store its id
+The 'chats' collection contains all of the chats on the app. Each chat only needs to store its id.
 
 ## Authentication / Authorization / Auditing
 
