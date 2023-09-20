@@ -31,7 +31,7 @@ To use the search function, select the desired search type: username, name, or e
 <img width="1416" alt="searchss" src="https://github.com/Software-Miniproject/EmotiChat/assets/91104705/a456d1cd-3b83-4ac9-8410-0ba4a05a56d1">
 
 ## Chatroom Display
-The way that the chatroom display works is that the DisplayChatrooms.js component checks if the user is currently logged in (if not, wait for a change in the state of auth.currentUser to refresh). The component then queries into Firestore for all of the chat id's stored in the user's `chatrooms` array. It then displays each of these chatrooms as buttons that the user can click on to select that chatroom as the current chatroom
+The way that the chatroom display works is that the DisplayChatrooms.js component checks if the user is currently logged in (if not, wait for a change in the state of auth.currentUser to refresh). The component then queries into Firestore for all of the chat id's stored in the user's `chatrooms` array. It then displays each of these chatrooms as buttons that the user can click on to select that chatroom as the current chatroom.
 
 ## Messaging
 EmotiChat uses the id of the currently selected chatroom to display the id of the selected chatroom at the top and display all of the messages in Firestore associated with that id ordered by the timestamps of when each message was sent. If the id of the message sender is the same as the user currently logged in, the message will appear green on the right, and otherwise it will appear grey on the left of the chatroom.
