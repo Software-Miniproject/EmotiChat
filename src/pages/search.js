@@ -122,12 +122,12 @@ const Search = () => {
                   <td>
                   <a
   href="/"
-  onClick={(e) => {
+  onClick={(e) =>  {
     e.preventDefault(); // Prevent the default link behavior
 
     // Execute the startChat function with a slight delay
-    setTimeout(() => {
-      startChat(user);
+    setTimeout( async () => {
+      await startChat(user);
       
       // Navigate to the home page
       window.location.href = '/';
