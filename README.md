@@ -21,7 +21,20 @@ The 'messages' collection contains all of the messages sent across the entire ap
 #### Chats
 The 'chats' collection contains all of the chats on the app. Each chat only needs to store its id.
 
-## Authentication / Authorization / Auditing
+## Authentication / Authorization / Accounting
+
+<img width="1199" alt="Screenshot 2023-09-19 202049" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/2e163304-2270-4234-9ebf-5b719e634584">
+
+<img width="1198" alt="Screenshot 2023-09-19 202211" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/2378ce01-3aa1-495e-9ace-80fb8f72ade5">
+
+<img width="1199" alt="Screenshot 2023-09-19 202417" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/547709d2-356e-487c-9d04-e82010b67164">
+
+<img width="1196" alt="Screenshot 2023-09-19 202525" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/50321fe1-22d0-4f4c-9d16-5202b50de366">
+
+<img width="634" alt="Screenshot 2023-09-19 202619" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/474469c2-65df-4852-a4ec-b7ff3392aaf6">
+
+<img width="1196" alt="Screenshot 2023-09-19 202723" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/6173ecd9-0d58-4bfc-a1b8-a27375f0f692">
+
 
 ## Search Function
 The search function takes an input from the user and stores it which is then passed to the query search which outputs any value "greater than or equal to" the input. The results are displayed alphabetically. This means that anything after or equal to the input will be displayed. The results are read from the firestore where the information of the users is grabbed and displayed in a table. The search occurs only after the search button is pressed. There is also a select box where the user can select which field they are searching. The options available are username, name, and email. When the search button is pressed without input, all users will be displayed in the same alphabetical way. Along with that, the search is case-sensitive.
