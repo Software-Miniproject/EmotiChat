@@ -43,7 +43,7 @@ Additionally, your username cannot be the same as another user's. When you attem
 
 <img width="1196" alt="Screenshot 2023-09-19 202723" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/6173ecd9-0d58-4bfc-a1b8-a27375f0f692">
 
-If the username you enter fits the formatting requirements and is not already being used, you will successfully be able to save it to your account and a success message will be displayed stating that your username was changed.
+If the username you enter fits the formatting requirements and is not already being used, you will successfully be able to save it to your account and a success message will be displayed stating that your username was updated successfully. This change is immediately reflected throughout the website, including in the Navbar, your account page, and in your chats.
 
 ## Search Function
 The search function takes an input from the user and stores it which is then passed to the query search which outputs any value "greater than or equal to" the input. The results are displayed alphabetically. This means that anything after or equal to the input will be displayed. The results are read from the Cloud Firestore where the information of the users is grabbed and displayed in a table. The search occurs only after the search button is pressed. There is also a select box where the user can select which field they are searching. The options available are username, name, and email. When the search button is pressed without input, all users will be displayed in the same alphabetical way. Along with that, the search is case-sensitive.
