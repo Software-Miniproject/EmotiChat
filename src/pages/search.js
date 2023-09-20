@@ -96,7 +96,7 @@ const Search = () => {
           <option value="name"> Name </option>
           <option value="email"> Email </option>
         </select>
-        <button onClick={handleButtonClick}>Submit</button>
+        <button onClick={handleButtonClick}> Search </button>
         <br></br>
       </div>
       <br></br>
