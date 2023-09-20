@@ -39,7 +39,7 @@ The search function takes an input from the user and stores it which is then pas
 
 To use the search function, select the desired search type: username, name, or email. Then, select the search bar and type the search into the bar. From there, press the search button to submit the search. Once pressed, the results will be displayed.
 
-<img width="1416" alt="searchss" src="https://github.com/Software-Miniproject/EmotiChat/assets/91104705/a456d1cd-3b83-4ac9-8410-0ba4a05a56d1">
+<img width="1280" alt="searchss" src="https://github.com/Software-Miniproject/EmotiChat/assets/91104705/a55f643e-bea2-4143-ad50-d3e446120331">
 
 ## Chatroom Display
 The way that the chatroom display works is that the DisplayChatrooms.js component checks if the user is currently logged in (if not, wait for a change in the state of auth.currentUser to refresh). The component then queries into Firestore for all of the chat id's stored in the user's `chatrooms` array. It then displays each of these chatrooms as buttons that the user can click on to select that chatroom as the current chatroom.
