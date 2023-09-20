@@ -4,7 +4,7 @@ EmotiChat is a Firebase and React-based online chat web-application that allows 
 ## How to Use
 To use EmotiChat, you just have to go to the link emoti-chat.netlify.app. From there, you can sign-in using the `Sign in` link on the navigation bar. This lets you create a user using Google User Authentication. From there, you can use the `Search` link to search up existing users on the app to create chatrooms. On the home page, you can select which chatroom to view from the Chatrooms menu, and in the chatroom itself you can view the messages sent to you and send messages back.
 
-<img width="1670" alt="Screen Shot 2023-09-19 at 6 24 52 PM" src="https://github.com/Software-Miniproject/EmotiChat/assets/98369076/8bcb4a5b-092a-4598-90c9-3d65256b260a">
+<img width="1668" alt="Screen Shot 2023-09-19 at 8 20 38 PM" src="https://github.com/Software-Miniproject/EmotiChat/assets/98369076/586c310a-9438-4cda-b162-dd09ce246ca6">
 
 ## React and Firebase
 The app itself is written using React as a free, open-source tool for creating mobile and web applications using JavaScript and CSS. The React code connects to Firebase for access to API's like Google Authentication as well as the Firestore storage feature that allows easy setup and querying of a database for the application.
