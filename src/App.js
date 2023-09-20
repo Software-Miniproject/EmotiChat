@@ -20,8 +20,8 @@ function App() {
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={ <Protected> <Home /> </Protected> } />
+          <Route path="/login" element={ <Login />} />
           <Route path="/search" element={ <Protected> <Search /> </Protected>} />
           <Route path="/account" element={ <Protected> <Account /> </Protected>} />
           <Route path="/username" element={ <Protected> <Username /> </Protected>} />
