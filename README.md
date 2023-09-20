@@ -29,6 +29,10 @@ Before being able to use any of the features of EmotiChat, you must sign in with
 
 <img width="1199" alt="Screenshot 2023-09-19 202417" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/547709d2-356e-487c-9d04-e82010b67164">
 
+After signing in, you are taken to the home page, and the Navbar now indicates the user that you are signed in as, and contains links to your account page, and the search page. Clicking the "EmotiChat" link takes you to the home page. There is also "Sign Out" button that you can use the sign out of your account from any page at any time.
+
+Clicking the "My Account" link takes you to your account page. Your account page displays your profile picture, name, username, and email that you signed in with. This information is gathered from your google account when you sign in to EmotiChat for the first time, with your username being taken from your email prefix. There is also a "Sign Out" button on the account page that you can also use to sign out. Clicking the "Change" link nexts to your username takes you to the username change page.
+
 <img width="1196" alt="Screenshot 2023-09-19 202525" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/50321fe1-22d0-4f4c-9d16-5202b50de366">
 
 <img width="634" alt="Screenshot 2023-09-19 202619" src="https://github.com/Software-Miniproject/EmotiChat/assets/91096079/474469c2-65df-4852-a4ec-b7ff3392aaf6">
